@@ -37,14 +37,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = findViewById(R.id.button2);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setffmpeg();
-            }
-        });
-
         // 請求錄音權限
         requestPermission();
 
@@ -87,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     mediaRecorder.stop();
                     mediaRecorder.release();
+                    setffmpeg();
                 } catch (IllegalStateException e) {
                     // 處理錯誤
                     e.printStackTrace();
